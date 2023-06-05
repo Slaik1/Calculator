@@ -92,7 +92,6 @@ document.addEventListener('DOMContentLoaded',() =>{
     actionButtons[9].onclick =() =>{
         let text= textSolution.innerText.split(/(?=[-+*%\/])/)
         if(text.includes('%')){
-            //const operators=['*','/','+','-']
             let result=[]
             for (let i = 0;i < text.length; i++) {
                 if(text[i]==='%'){
