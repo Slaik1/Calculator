@@ -51,19 +51,19 @@ actionButtons[1].onclick =() =>{
     answer.style.color='#FFF'
     containerLite.style.backgroundColor='#292D36'
 
-    actionButtons[0].style.fill='rgba($color: #FFF, $alpha: 0.9)'
-    actionButtons[1].style.fill='rgba($color: #FFF, $alpha: 0.9)'
+    actionButtons[0].style.fill='#FFF'
+    actionButtons[1].style.fill='#FFF'
     actionButtons[0].onmouseover = function () {
         actionButtons[0].style.fill='rgba($color: #000, $alpha: 0.9)'
     }
     actionButtons[0].onmouseleave = function () {
-        actionButtons[0].style.fill = 'rgba($color: #FFF, $alpha: 0.9)'
+        actionButtons[0].style.fill = '#FFF'
     }
     actionButtons[1].onmouseover = function () {
         actionButtons[1].style.fill='rgba($color: #000, $alpha: 0.9)'
     }
     actionButtons[1].onmouseleave = function () {
-        actionButtons[1].style.fill = 'rgba($color: #FFF, $alpha: 0.9)'
+        actionButtons[1].style.fill = '#FFF'
     }
 
     for (let index = 0; index < buttons.length; index++) {
