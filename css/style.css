@@ -511,6 +511,11 @@ body .container .calculator .calculator__buttons button svg {
   height: 35px;
   fill: #50F2D3;
 }
+body .container .calculator .calculator__buttons button #degree {
+  transform: rotate(90deg);
+  height: 40px;
+  width: 40px;
+}
 
 .body_white {
   background: #22252D;

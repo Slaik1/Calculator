@@ -17,15 +17,12 @@ document.addEventListener('DOMContentLoaded',() =>{
     actionButtons=Array.from(document.querySelector('.calculator__buttons').children).filter(item => item.innerText=='' || item.innerText=='AC'|| item.innerText=='.')
 
     actionButtons[0].onclick = () =>{
-        console.log(textAnswer[0]);
         textAnswer.innerText='0'
         textSolution.innerText=''
     }
 
     actionButtons[1].onclick =() =>{
         const solution=textSolution.innerText.split(/(?=[-+*%\/])/)
-        console.log(solution);
-
         const operator1=['+','-']
         const operator2=['*','/','%']
         let lastNum=solution.pop()
@@ -52,29 +49,28 @@ document.addEventListener('DOMContentLoaded',() =>{
     }
 
     actionButtons[2].onclick =() =>{
-        replaceSymbol()
-        textSolution.innerText+='%'
+        textSolution.innerText+='^'
+        validSymbols()
     }
 
     actionButtons[3].onclick =() =>{
-        replaceSymbol()
         textSolution.innerText+='/'
+        validSymbols()
     }
 
     actionButtons[4].onclick =() =>{
-        replaceSymbol()
         textSolution.innerText+='*'
-        
+        validSymbols()
     }
 
     actionButtons[5].onclick =() =>{
-        replaceSymbol()
         textSolution.innerText+='-'
+        validSymbols()
     }
 
     actionButtons[6].onclick =() =>{
-        replaceSymbol()
         textSolution.innerText+='+'
+        validSymbols()
     }
 
     actionButtons[7].onclick =() =>{
@@ -82,48 +78,30 @@ document.addEventListener('DOMContentLoaded',() =>{
     }
 
     actionButtons[8].onclick =() =>{
-        replaceSymbol()
         if(textSolution.innerText==''){
             textSolution.innerText+='0'
         }
         textSolution.innerText+='.'
+        validSymbols()
     }
 
     actionButtons[9].onclick =() =>{
-        let text= textSolution.innerText.split(/(?=[-+*%\/])/)
-        if(text.includes('%')){
-            let result=[]
-            for (let i = 0;i < text.length; i++) {
-                if(text[i]==='%'){
-                    result.push(i)
-                }
-            }
-            for (let i = 0; i < result.length; i++) {
-                text.splice(result[i]-i,1)
-                let res=text[result[i]-1-i]
-                text[result[i]-1-i]=res[0]+(res.slice(1)/100)
-            }
-            console.log(text);
-            const answer =text.join('')
-            console.log(answer);
-            textAnswer.innerText=eval(answer)
-        }
-        else{
-            textAnswer.innerText=eval(textSolution.innerText)
-        }
+        let solution= textSolution.innerText
+        textAnswer.innerText=eval(solution.replaceAll('^','**'))
     }
 
     function delLastSymbol(){
         textSolution.innerText=textSolution.innerText.slice(0,-1)
     }
 
-    function replaceSymbol(){
-        const operators=['*','/','+','-','.']
-        let text=textSolution.innerText
-        if((text[text.length-1]==='*' || text[text.length-1]==='/'|| text[text.length-1]==='%') && !operators.includes(text[text.length-2])){
-
-        }else if(operators.includes(text[text.length-1])){
-            delLastSymbol()
+    function validSymbols(){
+        const operators=['*','/','+','-','.','^']
+        let solution=textSolution.innerText
+        if((solution[solution.length-2]==='*' || solution[solution.length-2]==='/') && solution[solution.length-1]==='-'){
+            if(solution[solution.length-2]===solution[solution.length-3]) delLastSymbol()
+        }else if(operators.includes(solution[solution.length-2])){
+            solution=solution.slice(0,-2)+solution[solution.length-1]
+            textSolution.innerText=solution
         }
     }
 })

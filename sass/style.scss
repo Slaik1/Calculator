@@ -144,6 +144,11 @@ body{
                         height: 35px;
                         fill: #50F2D3;
                     }
+                    #degree{
+                        transform: rotate(90deg);
+                        height: 40px;
+                        width: 40px;
+                    }
                 }
             }
         }
