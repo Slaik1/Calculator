@@ -1,0 +1,28 @@
+:root {
+    --white: #fff;
+    --black: #0c0b0b;
+    --black100:#1e2127;
+    --gray100: #22252D;
+    --gray200: #292D36;
+    --white200: #F7F7F7;
+    --white300:#e6dede;
+    --cian: #50F2D3;
+    --grey: #828387;
+
+    --font-color-light: var(--black);
+    --font-color-dark: var(--white);
+
+    --bg-light: var(--white);
+    --bg-dark: var(--gray100);
+
+    --bg-tint-light: var(--white200);
+    --bg-tint-dark: var(--gray200);
+
+    --bg-hover-button-light: var(--white300);
+    --bg-hover-button-dark: var(--black100);
+
+    --font-color: var(--font-color-light);
+    --bg: var(--bg-light);
+    --bg-tint: var(--bg-tint-light);
+    --bg-hover-button: var(--bg-hover-button-light);
+}

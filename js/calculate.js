@@ -28,15 +28,15 @@ document.addEventListener('DOMContentLoaded',() =>{
         let lastNum=solution.pop()
 
         if(operator1.includes(lastNum[0])){
-            if(lastNum[0]==='+'){
-                const newNum='-'+lastNum.slice(1)
+            if(lastNum[0] === '+'){
+                const newNum = '-' + lastNum.slice(1)
                 textSolution.innerText=solution.join('')+newNum
-            }else if(lastNum[0]==='-'){
+            }else if(lastNum[0] === '-'){
                 if(operator2.includes(solution[solution.length-1])){
                     textSolution.innerText=solution.join('')+lastNum.slice(1)
                 }
                 else{
-                    const newNum='+'+lastNum.slice(1)
+                    const newNum = '+' +lastNum.slice(1)
                     textSolution.innerText=solution.join('')+newNum
                 }
             }
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded',() =>{
 
     actionButtons[9].onclick =() =>{
         let solution= textSolution.innerText
-        textAnswer.innerText=eval(solution.replaceAll('^','**'))
+        textAnswer.innerText = eval(solution.replaceAll('^','**'))
     }
 
     function delLastSymbol(){
